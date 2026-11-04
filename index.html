@@ -1,138 +1,59 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1020">
-<title>BOOSTORA — SMM Panel</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1020"><title>BOOSTORA — SMM Panel</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1020;--side:#10172b;--panel:#151e34;--panel2:#19243d;--line:#293653;--muted:#9eacc7;--text:#f4f7ff;--purple:#8257f5;--cyan:#45c7e8;--green:#38d39f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px Inter,system-ui,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.sidebar{background:var(--side);border-right:1px solid var(--line);padding:22px 15px;display:flex;flex-direction:column;gap:24px}.brand{font-size:23px;font-weight:950;letter-spacing:1px;padding:0 10px}.brand span{color:#a88cff}.side-label{font-size:10px;letter-spacing:1.6px;color:#7888a7;font-weight:800;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#aab7d0;text-align:left;padding:12px;border-radius:10px;font-weight:650}.nav button:hover,.nav button.active{background:#28234b;color:white}.nav button.active:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#a88cff;margin:0 10px 2px 0}.side-bottom{margin-top:auto}.main{min-width:0}.topbar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;background:#0e1527}.topbar small{color:var(--muted)}.user{display:flex;align-items:center;gap:10px}.avatar{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:#33265e;color:#d9ccff;font-weight:900}.content{max-width:1250px;margin:auto;padding:28px 30px 55px}.page{display:none}.page.active{display:block}.eyebrow{font-size:11px;color:#a88cff;letter-spacing:1.7px;font-weight:850}.heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:6px 0 22px}.heading h1{font-size:27px;margin:4px 0}.muted{color:var(--muted)}.btn{border:1px solid #3a4868;background:#202c47;color:#fff;padding:11px 15px;border-radius:10px;font-weight:750}.btn.primary{border:0;background:linear-gradient(110deg,#7049e8,#9b5cf6)}.btn.ghost{background:transparent}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}.stat,.panel,.service{background:var(--panel);border:1px solid var(--line);border-radius:15px}.stat{padding:18px}.stat .label{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:25px;margin:9px 0 4px}.stat small{color:#8d9bb6}.panel{padding:20px;margin-bottom:18px}.panel h2{font-size:17px;margin:0 0 16px}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.quick button{padding:16px;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:12px;color:white}.quick b{display:block;margin:8px 0 4px}.quick span{font-size:12px;color:var(--muted)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:7px;margin-bottom:14px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#c2cde1;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #34425f;background:#0d1528;color:white;border-radius:10px;padding:12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#9674f5}.hint{font-size:11px;color:var(--muted);line-height:1.5}.notice{background:#211d3d;border:1px solid #51417f;color:#d9d0f5;padding:13px;border-radius:11px;font-size:12px;line-height:1.6;margin:14px 0}.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.service{padding:16px}.service .cat{font-size:10px;color:#bba7ff;font-weight:850;letter-spacing:1px}.service h3{font-size:15px;margin:9px 0}.service p{color:var(--muted);font-size:12px;line-height:1.5;min-height:38px}.service button{width:100%;margin-top:8px}.toolbar{display:flex;gap:10px;margin-bottom:15px}.toolbar input{flex:1;min-width:0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:520px}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);font-size:12px}th{color:#9eacc7;font-weight:700}.empty{text-align:center;color:var(--muted);padding:30px}.toast{position:fixed;bottom:20px;right:20px;background:#202b45;border:1px solid #53658b;color:white;padding:14px 18px;border-radius:12px;box-shadow:0 10px 35px #0008;display:none;max-width:340px;z-index:10}.toast.show{display:block}.mobilehead{display:none}
-@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:5;padding:10px 12px;gap:8px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:3px 6px}.side-label,.side-bottom{display:none}.nav{display:flex;overflow:auto;gap:5px}.nav button{white-space:nowrap;padding:9px 11px;font-size:12px}.nav button.active:before{display:none}.topbar{height:55px;padding:0 16px}.content{padding:22px 16px 45px}.cards{grid-template-columns:repeat(2,1fr)}.service-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.heading{align-items:flex-start;flex-direction:column}.heading h1{font-size:23px}.quick{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.stat{padding:14px}.stat strong{font-size:21px}.topbar small{font-size:11px}}
-</style>
-</head>
-<body>
-<div class="app">
-<aside class="sidebar">
-<div class="brand"><span>BOOST</span>ORA</div>
-<div><div class="side-label">MENU</div><nav class="nav">
-<button class="active" data-page="dashboard">◫ &nbsp; Dashboard</button>
-<button data-page="neworder">＋ &nbsp; New Order</button>
-<button data-page="services">▦ &nbsp; Services</button>
-<button data-page="orders">▤ &nbsp; My Orders</button>
-<button data-page="addfunds">＋ &nbsp; Add Funds</button>
-<button data-page="transactions">↔ &nbsp; Transactions</button>
-<button data-page="support">✉ &nbsp; Support</button>
-</nav></div>
-<div class="side-bottom"><div class="side-label">ACCOUNT</div><div class="notice">Welcome to BOOSTORA.<br>Secure account features are being connected.</div></div>
-</aside>
-<main class="main">
-<header class="topbar"><small>Social Media Marketing Panel</small><div class="user"><div class="avatar">B</div><div><b>Guest User</b><br><small>Preview account</small></div></div></header>
-<div class="content">
-<section class="page active" id="dashboard">
-<div class="eyebrow">OVERVIEW</div><div class="heading"><div><h1>Dashboard</h1><div class="muted">Welcome back to your growth workspace.</div></div><button class="btn primary" data-go="neworder">＋ Create new order</button></div>
-<div class="cards">
-<div class="stat"><div class="label">Wallet Balance</div><strong>₹0.00</strong><small>Available balance</small></div>
-<div class="stat"><div class="label">Total Orders</div><strong id="totalOrders">0</strong><small>Requests in this preview</small></div>
-<div class="stat"><div class="label">Pending Orders</div><strong id="pendingOrders">0</strong><small>Awaiting backend</small></div>
-<div class="stat"><div class="label">Minimum Deposit</div><strong>₹10</strong><small>Planned minimum top-up</small></div>
-</div>
-<div class="panel"><h2>Quick actions</h2><div class="quick">
-<button data-go="neworder"><div>🛒</div><b>New Order</b><span>Choose a service and prepare request</span></button>
-<button data-go="addfunds"><div>💳</div><b>Add Funds</b><span>View planned deposit options</span></button>
-<button data-go="services"><div>🚀</div><b>Explore Services</b><span>Browse available categories</span></button>
-</div></div>
-<div class="notice"><b>Preview mode:</b> This website interface is being built. Login, wallet balance, payment verification, live orders and admin controls are not connected yet. Do not send money until official payment verification is enabled.</div>
-</section>
-<section class="page" id="neworder">
-<div class="eyebrow">BOOSTORA · ORDER PANEL</div><div class="heading"><div><h1>New Order</h1><div class="muted">Select category, service and package.</div></div></div>
-<div class="panel order-panel">
-<div class="platform-grid" id="platformTiles">
-<button type="button" class="platform active" data-platform="">☰ All</button><button type="button" class="platform" data-platform="Instagram">◎ Instagram</button><button type="button" class="platform" data-platform="YouTube">▶ YouTube</button><button type="button" class="platform" data-platform="Facebook">f Facebook</button><button type="button" class="platform" data-platform="LinkedIn">in LinkedIn</button><button type="button" class="platform" data-platform="X">𝕏 X</button><button type="button" class="platform" data-platform="Telegram">➤ Telegram</button><button type="button" class="platform" data-platform="WhatsApp">◉ WhatsApp</button>
-</div>
-<div class="field full"><label for="serviceSearch">⌕ Search services</label><input id="serviceSearch" type="search" placeholder="Search services..."></div>
-<div class="field full"><label for="categorySelect">Category</label><select id="categorySelect"><option value="">All categories</option><option>Instagram</option><option>YouTube</option><option>Facebook</option><option>LinkedIn</option><option>X</option><option>Telegram</option><option>WhatsApp</option></select></div>
-<div class="field full"><label for="serviceSelect">Service</label><select id="serviceSelect"><option value="">Choose a service</option>
-<option data-platform="Instagram" value="Instagram — Indian Audience Profile Promotion">Instagram — Indian Audience Profile Promotion</option><option data-platform="Instagram" value="Instagram — Reel / Video Promotion">Instagram — Reel / Video Promotion</option><option data-platform="Instagram" value="Instagram — Post Engagement Campaign">Instagram — Post Engagement Campaign</option><option data-platform="Instagram" value="Instagram — Content & Profile Audit">Instagram — Content & Profile Audit</option>
-<option data-platform="YouTube" value="YouTube — Indian Audience Video Promotion">YouTube — Indian Audience Video Promotion</option><option data-platform="YouTube" value="YouTube — Channel Discovery Campaign">YouTube — Channel Discovery Campaign</option><option data-platform="YouTube" value="YouTube — SEO & Metadata Optimization">YouTube — SEO & Metadata Optimization</option>
-<option data-platform="Facebook" value="Facebook — Page Promotion">Facebook — Page Promotion</option><option data-platform="Facebook" value="Facebook — Video Promotion">Facebook — Video Promotion</option><option data-platform="Facebook" value="Facebook — Post Promotion">Facebook — Post Promotion</option>
-<option data-platform="LinkedIn" value="LinkedIn — Page Awareness Campaign">LinkedIn — Page Awareness Campaign</option><option data-platform="LinkedIn" value="LinkedIn — Sponsored Content Promotion">LinkedIn — Sponsored Content Promotion</option>
-<option data-platform="X" value="X — Profile Awareness Campaign">X — Profile Awareness Campaign</option><option data-platform="X" value="X — Post Promotion">X — Post Promotion</option>
-<option data-platform="Telegram" value="Telegram — Sponsored Channel Placement">Telegram — Sponsored Channel Placement</option><option data-platform="Telegram" value="Telegram — Channel Content Promotion">Telegram — Channel Content Promotion</option>
-<option data-platform="WhatsApp" value="WhatsApp — Channel Discovery Promotion">WhatsApp — Channel Discovery Promotion</option><option data-platform="WhatsApp" value="WhatsApp — Click-to-WhatsApp Ad Campaign">WhatsApp — Click-to-WhatsApp Ad Campaign</option>
-</select></div>
-<div class="field full"><label>Service description</label><div class="notice" id="serviceDescription">Choose a service to view details. Genuine promotion only; no bot engagement or guaranteed follower counts.</div></div>
-<div class="field full"><label for="targetUrl">Link (public profile / post / video)</label><input id="targetUrl" type="url" placeholder="https://..."></div>
-<div class="field full"><label for="quantity">Package / Campaign Budget</label><select id="quantity"><option value="">Select package</option><option value="100">Starter — ₹100</option><option value="250">Basic — ₹250</option><option value="500">Growth — ₹500</option><option value="1000">Pro — ₹1,000</option></select><div class="hint">Minimum budget ₹100. Package price is not a promised number of followers, likes or views.</div></div>
-<div class="field full"><label>Estimated delivery time</label><input id="averageTime" value="Confirmed after campaign review" disabled></div>
-<div class="field full"><label for="charge">Charge (₹)</label><input id="charge" value="₹0" disabled></div>
-<div class="field full"><button class="btn primary" id="submitOrder">Submit Order Request</button><div class="hint">Request only. Admin confirms campaign plan and payment before work begins.</div></div>
-</div></section>
-<section class="page" id="services">
-<div class="eyebrow">CATALOG</div><div class="heading"><div><h1>Services</h1><div class="muted">Indian-audience promotion campaigns with transparent delivery; no guaranteed follower or view counts.</div></div></div>
-<div class="toolbar"><input class="field" id="serviceSearch" placeholder="Search services..." style="margin:0;border:1px solid #34425f;background:#0d1528;color:white;border-radius:10px;padding:12px"></div>
-<div class="service-grid" id="serviceGrid">
-<article class="service" data-key="instagram indian audience profile promotion"><div class="cat">INSTAGRAM · IG-01</div><h3>Indian Audience Profile Promotion</h3><p>Promote a public profile to relevant people in India through legitimate advertising. Follower totals are not guaranteed.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="Instagram — Indian Audience Profile Promotion">Set up campaign</button></article>
-<article class="service" data-key="instagram reels video views promotion"><div class="cat">INSTAGRAM · IG-02</div><h3>Reel / Video Promotion</h3><p>Reach relevant viewers in India using approved ad placements. Actual delivery varies by creative and targeting.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="Instagram — Reel / Video Promotion">Set up campaign</button></article>
-<article class="service" data-key="instagram post engagement"><div class="cat">INSTAGRAM · IG-03</div><h3>Post Engagement Campaign</h3><p>Promote eligible posts to encourage authentic interactions from real people.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="Instagram — Post Engagement Campaign">Set up campaign</button></article>
-<article class="service" data-key="youtube indian audience video promotion views"><div class="cat">YOUTUBE · YT-01</div><h3>Indian Audience Video Promotion</h3><p>Advertise eligible videos to viewers in India. Views do not guarantee subscribers or monetization eligibility.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="YouTube — Indian Audience Video Promotion">Set up campaign</button></article>
-<article class="service" data-key="youtube channel discovery"><div class="cat">YOUTUBE · YT-02</div><h3>Channel Discovery Campaign</h3><p>Help relevant viewers discover a channel through compliant promotion; subscriber counts are not guaranteed.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="YouTube — Channel Discovery Campaign">Set up campaign</button></article>
-<article class="service" data-key="facebook page promotion"><div class="cat">FACEBOOK · FB-01</div><h3>Page Promotion</h3><p>Promote a public Facebook page to a relevant audience in India using approved advertising.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="Facebook — Page Promotion">Set up campaign</button></article>
-<article class="service" data-key="facebook video promotion"><div class="cat">FACEBOOK · FB-02</div><h3>Video Promotion</h3><p>Promote eligible videos to real audiences; results depend on the advertising platform.</p><div class="hint">Budget options: ₹100 · ₹250 · ₹500 · ₹1,000</div><button class="btn primary pick" data-service="Facebook — Video Promotion">Set up campaign</button></article></div>
-</section>
-<section class="page" id="orders">
-<div class="eyebrow">ACTIVITY</div><div class="heading"><div><h1>My Orders</h1><div class="muted">Your request previews appear here in this session.</div></div></div>
-<div class="panel"><div class="tablewrap"><table><thead><tr><th>ORDER</th><th>SERVICE</th><th>LINK</th><th>STATUS</th></tr></thead><tbody id="orderRows"><tr><td colspan="4" class="empty">No requests yet.</td></tr></tbody></table></div></div>
-</section>
-<section class="page" id="addfunds">
-<div class="eyebrow">WALLET</div><div class="heading"><div><h1>Add Funds</h1><div class="muted">Minimum planned deposit: ₹10.</div></div></div>
-<div class="panel"><h2>Deposit request</h2><div class="field"><label for="amount">Amount (INR)</label><input id="amount" type="number" min="10" placeholder="Enter amount (minimum ₹10)"></div><div class="field"><label>Payment method</label><select disabled><option>UPI — will be enabled after verification setup</option></select></div><button class="btn primarconst descriptions={
-'Instagram — Indian Audience Profile Promotion':'Promote a public profile to relevant audiences in India through approved advertising. Follower totals are not guaranteed.',
-'Instagram — Reel / Video Promotion':'Promote eligible Reels or videos to relevant viewers. Actual reach varies by campaign.',
-'Instagram — Post Engagement Campaign':'Promote an eligible post to encourage authentic interactions from real people.',
-'Instagram — Content & Profile Audit':'Review bio, content themes and discoverability; receive an actionable improvement report.',
-'YouTube — Indian Audience Video Promotion':'Advertise eligible videos to viewers in India. Ad views do not guarantee subscribers or monetization eligibility.',
-'YouTube — Channel Discovery Campaign':'Help relevant viewers discover a channel; subscriber totals are not guaranteed.',
-'YouTube — SEO & Metadata Optimization':'Improve titles, descriptions, keywords and channel organization. Rankings are not guaranteed.',
-'Facebook — Page Promotion':'Promote a public page to relevant audiences through approved advertising.',
-'Facebook — Video Promotion':'Promote eligible videos to real audiences; delivery varies.',
-'Facebook — Post Promotion':'Promote eligible public posts through approved advertising.',
-'LinkedIn — Page Awareness Campaign':'Build awareness for a business page among professional audiences.',
-'LinkedIn — Sponsored Content Promotion':'Promote approved business content to selected professional audiences.',
-'X — Profile Awareness Campaign':'Promote a public profile through compliant advertising.',
-'X — Post Promotion':'Promote eligible public posts to relevant audiences.',
-'Telegram — Sponsored Channel Placement':'Arrange a disclosed sponsored placement with a relevant channel, subject to approval.',
-'Telegram — Channel Content Promotion':'Promote public channel content through disclosed advertising placements.',
-'WhatsApp — Channel Discovery Promotion':'Promote a public WhatsApp Channel through approved discovery placements.',
-'WhatsApp — Click-to-WhatsApp Ad Campaign':'Set up advertising that sends interested people to a WhatsApp conversation.'
-};
-const categorySelect=document.getElementById('categorySelect'),serviceSelect=document.getElementById('serviceSelect');
-function filterBoostoraServices(platform){categorySelect.value=platform||'';Array.from(serviceSelect.options).forEach((o,i)=>{if(i>0)o.hidden=!!platform&&o.dataset.platform!==platform;});document.querySelectorAll('#platformTiles .platform').forEach(b=>b.classList.toggle('active',b.dataset.platform===(platform||'')));serviceSelect.value='';document.getElementById('serviceDescription').textContent='Choose a service to view details.';}
-document.querySelectorAll('#platformTiles .platform').forEach(b=>b.addEventListener('click',()=>filterBoostoraServices(b.dataset.platform)));
-categorySelect.addEventListener('change',()=>filterBoostoraServices(categorySelect.value));
-serviceSelect.addEventListener('change',()=>{document.getElementById('serviceDescription').textContent=descriptions[serviceSelect.value]||'Choose a service to view details.';});
-document.getElementById('serviceSearch').addEventListener('input',e=>{const q=e.target.value.toLowerCase();Array.from(serviceSelect.options).forEach((o,i)=>{if(i>0)o.hidden=!!q&&!o.text.toLowerCase().includes(q);});});
-document.getElementById('quantity').addEventListener('change',e=>{document.getElementById('charge').value=e.target.value?'₹'+Number(e.target.value).toLocaleString('en-IN'):'₹0';});
-oast('Service selected: '+name)}
-document.querySelectorAll('.pick').forEach(b=>b.addEventListener('click',()=>pick(b.dataset.service)));
-const descriptions={
-'Instagram — Indian Audience Profile Promotion':'Promote a public Instagram profile to relevant audiences in India through approved advertising. Follower totals are not guaranteed.',
-'Instagram — Reel / Video Promotion':'Advertise an eligible Reel or video to relevant viewers in India. Actual views depend on audience, creative and platform delivery.',
-'Instagram — Post Engagement Campaign':'Promote an eligible post to encourage authentic interactions from real people.',
-'YouTube — Indian Audience Video Promotion':'Advertise eligible YouTube videos to viewers in India. Ad views do not guarantee subscribers or monetization eligibility.',
-'YouTube — Channel Discovery Campaign':'Help relevant viewers discover a YouTube channel through compliant promotion; subscriber totals are not guaranteed.',
-'Facebook — Page Promotion':'Promote a public Facebook page to a relevant audience in India using approved advertising.',
-'Facebook — Video Promotion':'Promote eligible Facebook videos to real audiences; results depend on platform delivery.'
-};
-const categorySelect=document.getElementById('categorySelect'), serviceSelect=document.getElementById('serviceSelect');
-categorySelect.addEventListener('change',()=>{const platform=categorySelect.value;Array.from(serviceSelect.options).forEach((o,i)=>{if(i>0)o.hidden=!!platform&&o.dataset.platform!==platform;});serviceSelect.value='';document.getElementById('serviceDescription').textContent='Select a service to view its details.';});
-serviceSelect.addEventListener('change',()=>{document.getElementById('serviceDescription').textContent=descriptions[serviceSelect.value]||'Select a service to view its details.';});
-document.getElementById('quantity').addEventListener('change',e=>{document.getElementById('charge').value=e.target.value?'₹'+Number(e.target.value).toLocaleString('en-IN'):'₹0';});
-document.getElementById('serviceSearch').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('.service').forEach(c=>c.style.display=c.dataset.key.includes(q)?'':'none')});
-let orders=[];
-document.getElementById('submitOrder').addEventListener('click',()=>{const service=document.getElementById('serviceSelect').value,url=document.getElementById('targetUrl').value.trim(),budget=Number(document.getElementById('quantity').value);if(!service)return toast('Please select a service.');if(!url)return toast('Please enter your public link.');try{new URL(url)}catch(e){return toast('Enter a valid link starting with https://')}if(!budget||budget<100)return toast('Minimum campaign budget is ₹100.');orders.push({id:'BO-'+String(orders.length+1).padStart(4,'0'),service,url});document.getElementById('totalOrders').textContent=orders.length;document.getElementById('pendingOrders').textContent=orders.length;document.getElementById('orderRows').innerHTML=orders.map(o=>'<tr><td>'+o.id+'</td><td>'+o.service+'</td><td style="max-width:180px;overflow-wrap:anywhere">'+o.url+'</td><td><span style="color:#f5c76b">Preview only</span></td></tr>').join('');toast('Preview added. This is not a live order and no payment was taken.');go('orders')});
-document.getElementById('depositBtn').addEventListener('click',()=>{const n=Number(document.getElementById('amount').value);if(!n||n<10)return toast('Minimum deposit is ₹10.');toast('Payment setup is not active yet. No money has been collected.')});
-document.getElementById('supportBtn').addEventListener('click',()=>{const s=document.getElementById('subject').value.trim(),m=document.getElementById('message').value.trim();if(!s||!m)return toast('Please enter subject and message.');toast('Support form preview ready. Backend is not connected yet.')});
+:root{color-scheme:dark;--bg:#0b1020;--side:#10172b;--panel:#151e34;--line:#293653;--muted:#9eacc7;--text:#f4f7ff;--purple:#8257f5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px system-ui,Arial}.app{min-height:100vh;display:grid;grid-template-columns:230px 1fr}.sidebar{background:var(--side);padding:20px 14px;border-right:1px solid var(--line)}.brand{font-size:24px;font-weight:900;margin:0 8px 24px}.brand span{color:#a88cff}.nav{display:grid;gap:6px}.nav button,.platform{background:transparent;color:#bac6dc;border:1px solid transparent;border-radius:9px;padding:12px;text-align:left;cursor:pointer}.nav button.active,.nav button:hover,.platform.active{background:#29234b;color:white;border-color:#55418c}.main{min-width:0}.top{height:65px;padding:0 26px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.content{max-width:1100px;margin:auto;padding:28px}.page{display:none}.page.active{display:block}h1{font-size:26px;margin:5px 0}.muted,.hint{color:var(--muted)}.panel,.stat,.service{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}.stats,.servicegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat strong{font-size:24px;display:block;margin-top:8px}.platforms{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.platform{border-color:var(--line);text-align:center}.field{display:grid;gap:7px;margin:14px 0}.field label{font-weight:700;color:#d6def0}.field input,.field select,.field textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #394766;background:#0d1528;color:white}.btn{background:#29234b;border:1px solid #5c4b91;color:white;border-radius:9px;padding:11px 16px;cursor:pointer;font-weight:700}.btn.primary{background:linear-gradient(110deg,#7049e8,#9b5cf6);border:0}.notice{background:#211d3d;border:1px solid #51417f;padding:13px;border-radius:10px;color:#ddd4f5;line-height:1.5}.service h3{margin:8px 0}.service p{color:var(--muted);line-height:1.5}.service small{color:#c6b6ff}.toolbar{display:flex;gap:10px}.toolbar input{flex:1}.hidden{display:none!important}
+@media(max-width:750px){.app{display:block}.sidebar{padding:10px;border-right:0;border-bottom:1px solid var(--line)}.brand{margin:3px 6px 10px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.content{padding:18px 13px}.stats,.servicegrid{grid-template-columns:1fr}.top{height:50px;padding:0 14px}}
+</style></head><body><div class="app"><aside class="sidebar"><div class="brand"><span>BOOST</span>ORA</div><nav class="nav"><button class="active" data-page="dashboard">Dashboard</button><button data-page="neworder">＋ New Order</button><button data-page="services">Services</button><button data-page="orders">My Orders</button><button data-page="addfunds">Add Funds</button><button data-page="support">Support</button></nav></aside>
+<main class="main"><header class="top"><b>Social Media Marketing Panel</b><span>Guest · Preview</span></header><div class="content">
+<section class="page active" id="dashboard"><h1>Dashboard</h1><p class="muted">Welcome to BOOSTORA.</p><div class="stats"><div class="stat">Wallet Balance<strong>₹0</strong></div><div class="stat">Total Requests<strong id="total">0</strong></div><div class="stat">Minimum Deposit<strong>₹10</strong></div></div><div class="panel"><h3>Quick actions</h3><button class="btn primary" data-go="neworder">＋ Create New Order</button> <button class="btn" data-go="services">Browse Services</button></div><div class="notice">Preview mode: login, real payment, wallet credit and campaign delivery are not connected. Do not send money to this preview.</div></section>
+<section class="page" id="neworder"><h1>New Order</h1><p class="muted">Choose a platform, service and campaign budget.</p><div class="panel">
+<div class="platforms" id="platforms"><button class="platform active" data-platform="All">☰ All</button><button class="platform" data-platform="Instagram">◎ Instagram</button><button class="platform" data-platform="YouTube">▶ YouTube</button><button class="platform" data-platform="Facebook">f Facebook</button><button class="platform" data-platform="LinkedIn">in LinkedIn</button><button class="platform" data-platform="X">𝕏 X</button><button class="platform" data-platform="Telegram">➤ Telegram</button><button class="platform" data-platform="WhatsApp">◉ WhatsApp</button></div>
+<div class="field"><label>Search services</label><input id="search" placeholder="Search by service name..."></div>
+<div class="field"><label>Category</label><select id="category"><option value="All">All categories</option><option>Instagram</option><option>YouTube</option><option>Facebook</option><option>LinkedIn</option><option>X</option><option>Telegram</option><option>WhatsApp</option></select></div>
+<div class="field"><label>Service</label><select id="service"><option value="">Select a service</option></select></div>
+<div class="notice" id="description">Select a service to see its description and delivery details.</div>
+<div class="field"><label>Profile / Post / Video URL</label><input id="url" placeholder="https://..."></div>
+<div class="field"><label>Campaign budget</label><select id="budget"><option value="">Choose budget</option><option value="100">Starter — ₹100</option><option value="250">Basic — ₹250</option><option value="500">Growth — ₹500</option><option value="1000">Pro — ₹1,000</option></select></div>
+<div class="field"><label>Charge</label><input id="charge" value="₹0" disabled></div>
+<p class="hint">Budgets are campaign amounts, not guaranteed follower, like or view quantities. Genuine advertising/promotion only.</p><button class="btn primary" id="submit">Submit request</button></div></section>
+<section class="page" id="services"><h1>Services</h1><p class="muted">Transparent promotion and creator-growth services.</p><div class="servicegrid" id="serviceCards"></div></section>
+<section class="page" id="orders"><h1>My Orders</h1><div class="panel" id="orderList">No requests submitted in this preview.</div></section>
+<section class="page" id="addfunds"><h1>Add Funds</h1><div class="panel"><p>Minimum deposit: ₹10</p><div class="notice">UPI payment and wallet credit are not active yet. Do not transfer money.</div></div></section>
+<section class="page" id="support"><h1>Support</h1><div class="panel"><p>Support backend is not connected yet. Contact options will appear after setup.</p></div></section>
+</div></main></div><script>
+(()=>{
+const items=[
+['Instagram','Indian Audience Profile Promotion','Promote a public profile to relevant people in India using approved advertising. Follower totals are not guaranteed.'],
+['Instagram','Reel / Video Promotion','Promote eligible Reels and videos to relevant viewers. Actual reach varies by campaign.'],
+['Instagram','Post Engagement Campaign','Promote an eligible post to encourage authentic interactions.'],
+['Instagram','Content & Profile Audit','Receive practical feedback on bio, content themes and profile discoverability.'],
+['YouTube','Indian Audience Video Promotion','Advertise eligible videos to viewers in India. Views do not guarantee subscribers or monetization eligibility.'],
+['YouTube','Channel Discovery Campaign','Help relevant viewers discover a channel. Subscriber totals are not guaranteed.'],
+['YouTube','SEO & Metadata Optimization','Improve titles, descriptions, keywords and channel organization.'],
+['Facebook','Page Promotion','Promote a public page to relevant audiences through approved advertising.'],
+['Facebook','Video Promotion','Promote eligible videos to real audiences; delivery varies.'],
+['Facebook','Post Promotion','Promote eligible public posts to relevant audiences.'],
+['LinkedIn','Page Awareness Campaign','Build awareness for a business page among professional audiences.'],
+['LinkedIn','Sponsored Content Promotion','Promote approved business content to selected professional audiences.'],
+['X','Profile Awareness Campaign','Promote a public profile through compliant advertising.'],
+['X','Post Promotion','Promote eligible public posts to relevant audiences.'],
+['Telegram','Sponsored Channel Placement','Arrange a clearly disclosed sponsored placement with a relevant channel.'],
+['Telegram','Channel Content Promotion','Promote public channel content through disclosed advertising placements.'],
+['WhatsApp','Channel Discovery Promotion','Promote a public WhatsApp Channel through approved discovery placements.'],
+['WhatsApp','Click-to-WhatsApp Ad Campaign','Set up ads that send interested people to a WhatsApp conversation.']
+];
+const $=id=>document.getElementById(id);let chosen='All',orders=[];
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>show(b.dataset.page));
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
+function fill(){const q=$('search').value.toLowerCase(),cat=$('category').value;const filtered=items.filter(x=>(cat==='All'||x[0]===cat)&&(chosen==='All'||x[0]===chosen)&&(x[0]+' '+x[1]).toLowerCase().includes(q));$('service').innerHTML='<option value="">Select a service</option>'+filtered.map(x=>'<option value="'+x[0]+'|'+x[1]+'">'+x[0]+' — '+x[1]+'</option>').join('');$('description').textContent='Select a service to see its description and delivery details.';}
+document.querySelectorAll('[data-platform]').forEach(b=>b.onclick=()=>{chosen=b.dataset.platform;$('category').value=chosen;document.querySelectorAll('[data-platform]').forEach(x=>x.classList.toggle('active',x===b));fill();});
+$('category').onchange=()=>{chosen='All';document.querySelectorAll('[data-platform]').forEach(x=>x.classList.toggle('active',x.dataset.platform===$('category').value));fill();};
+$('search').oninput=fill;$('service').onchange=()=>{const x=items.find(x=>x[0]+'|'+x[1]===$('service').value);$('description').textContent=x?x[2]:'Select a service to see its description and delivery details.';};
+$('budget').onchange=()=>{$('charge').value=$('budget').value?'₹'+Number($('budget').value).toLocaleString('en-IN'):'₹0';};
+$('submit').onclick=()=>{const s=$('service').value,u=$('url').value.trim(),b=$('budget').value;if(!s)return alert('Please select a service.');if(!u)return alert('Please enter the target URL.');try{new URL(u)}catch(e){return alert('Please enter a valid URL beginning with https://');}if(!b)return alert('Please choose a campaign budget.');orders.push({id:'BO-'+String(orders.length+1).padStart(4,'0'),s:s.replace('|',' — '),u,b});$('total').textContent=orders.length;$('orderList').innerHTML=orders.map(o=>'<p><b>'+o.id+'</b> · '+o.s+' · ₹'+o.b+' · Pending preview</p>').join('');alert('Preview request added. This is not a live order; no payment was taken.');show('orders');};
+$('serviceCards').innerHTML=items.map(x=>'<article class="service"><small>'+x[0].toUpperCase()+'</small><h3>'+x[1]+'</h3><p>'+x[2]+'</p><button class="btn primary" data-pick="'+x[0]+'|'+x[1]+'">Select service</button></article>').join('');
+$('serviceCards').addEventListener('click',e=>{const v=e.target.dataset.pick;if(!v)return;show('neworder');chosen=v.split('|')[0];$('category').value=chosen;document.querySelectorAll('[data-platform]').forEach(x=>x.classList.toggle('active',x.dataset.platform===chosen));fill();$('service').value=v;$('service').dispatchEvent(new Event('change'));});
+fill();
 })();
-</script>
-</body></html>
+</script></body></html>

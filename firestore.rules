@@ -1,0 +1,60 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Admin access must be granted securely with a Firebase custom claim.
+    // Never let a customer grant themselves admin access.
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || isAdmin());
+      // Wallet balances and account roles are server/admin controlled.
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /depositRequests/{requestId} {
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.amount is number
+        && request.resource.data.amount >= 10
+        && request.resource.data.amount <= 50000
+        && request.resource.data.utr is string
+        && request.resource.data.utr.size() >= 6
+        && request.resource.data.utr.size() <= 40
+        && request.resource.data.status == "pending";
+      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      allow update, delete: if isAdmin();
+    }
+
+    match /orders/{orderId} {
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.serviceName is string
+        && request.resource.data.targetUrl is string
+        && request.resource.data.amount is number
+        && request.resource.data.amount > 0
+        && request.resource.data.status == "pending";
+      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      allow update, delete: if isAdmin();
+    }
+
+    match /supportTickets/{ticketId} {
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 2000;
+      allow read, update, delete: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid && request.method == 'get');
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
